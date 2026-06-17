@@ -67,3 +67,39 @@ Example:
 ## Summary
 
 I learned that JavaScript variables are named containers used to store and manage data in a program. Variables can be declared using `let`, `const`, or `var`, with `let` allowing values to change and `const` being used for values that should remain constant. I also learned that variable names must follow specific rules: they can contain letters, numbers, underscores, and dollar signs, but they cannot start with a number, contain spaces, or use reserved keywords. Using meaningful names and consistent naming styles such as camelCase helps make code easier to read and maintain.
+
+##  What Are Primitive Data Types?
+In JavaScript, primitive values are immutable, which means their values cannot be changed directly after they are created.
+Example:
+ ### 1. Strings
+ Represents text.  
+ 
+    let str1='single quotes';
+    let str2="double quotes";
+    let str3=`this is backticks`;  
+ ### 2.  Numbers
+Represents integers and decimal numbers.
+
+    let  number1=94;
+    let  number3=-34.44;
+    let  number3=-6.44;
+    let  bigNumber=84848488848484849303844848933903484933;
+  ### 3.  Boolean
+   Represents logical values: `true` or `false`.
+
+    let isMarried=true;
+    let isUnderage=false;
+### 4.  Undefined
+   A variable that has been declared but not assigned a value.
+   
+
+    let score;
+    console.log(score); //undefined    
+### 5.  Null
+Represents the intentional absence of a value.
+
+    let  firstName  =  null;
+ ### 6.  BigInt
+  Represents very large integers beyond the safe limit of the `Number` type.  
+ 
+       let bigNumber = 12345678901234567890n;   
