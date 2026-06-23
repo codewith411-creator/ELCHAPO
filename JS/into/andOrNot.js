@@ -34,3 +34,12 @@ console.log(
     mercy_age > 18 && mercy_balance > 20000
   }`
 );
+
+
+console.log(`mercy is age is greater than 18
+and has more than 20k in her account
+${is_greater_than_18 || has_more_than_20k}
+`);
+
+console.log(`This is not true = ${!true}`)
+console.log(`This is not false = ${!true}`)
