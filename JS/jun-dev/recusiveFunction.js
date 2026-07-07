@@ -21,21 +21,19 @@ salaryGrossPrompt();
 */
 
 function factorial(num) {
-  // Validate input
+  // Validate input is greater than or equal to 1
   if (isNaN(num) || num < 1) {
     return "Please enter a number greater than or equal to 1.";
   }
-
-  // Starting number
+  // Starting number is equal to 1
   if (num === 1) {
     return 1;
   }
 
-  // Recursive calculation formula
-  return 
+  // Calculate factorial
   return num * factorial(num - 1);
 }
 
-console.log(factorial(5)); // 120
-console.log(factorial(0)); // 24
+console.log(factorial(3)); // 120
+console.log(factorial(4)); // 24
 console.log(factorial(1)); // 1
