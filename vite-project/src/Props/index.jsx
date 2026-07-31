@@ -22,7 +22,37 @@ function Parent() {
     <div>
       <h1>I am the Parent Component</h1>
 
+      <h2>Child Component (Using props)</h2>
+
       <Child
+        str={str}
+        amountInNumber={amount}
+        isOk={isOk}
+        notSet={notSet}
+        fruits={fruits}
+        student={student}
+        greet={greet}
+      />
+
+      <hr />
+
+      <h2>Child1 Component (Using Destructuring)</h2>
+
+      <Child1
+        str={str}
+        amountInNumber={amount}
+        isOk={isOk}
+        notSet={notSet}
+        fruits={fruits}
+        student={student}
+        greet={greet}
+      />
+
+      <hr />
+
+      <h2>Child2 Component (inside the function body)</h2>
+
+      <Child1
         str={str}
         amountInNumber={amount}
         isOk={isOk}
@@ -35,8 +65,7 @@ function Parent() {
   );
 }
 
-/* ---------------- CHILD COMPONENT ---------------- */
-
+// Access properties through props
 function Child(props) {
   console.log(props);
 
@@ -90,6 +119,108 @@ function Child(props) {
       </ul>
 
       <button onClick={props.greet}>Click Me</button>
+    </div>
+  );
+}
+
+// Destructure directly in the parameter list
+function Child1({ str, amountInNumber, isOk, notSet, fruits, student, greet }) {
+  return (
+    <div>
+      <h2>I am the Child Component</h2>
+
+      <ul>
+        <li>
+          Favourite String: <b>{str}</b>
+        </li>
+
+        <li>
+          Amount: <b>{amountInNumber}</b>
+        </li>
+
+        <li>
+          Boolean: <b>{String(isOk)}</b>
+        </li>
+
+        <li>
+          Null Value: <b>{String(notSet)}</b>
+        </li>
+
+        <li>
+          Student Name: <b>{student.name}</b>
+        </li>
+
+        <li>
+          Student Age: <b>{student.age}</b>
+        </li>
+
+        <li>
+          Student Country: <b>{student.country}</b>
+        </li>
+
+        <li>
+          Fruits:
+          <ul>
+            {fruits.map((fruit) => (
+              <li key={fruit}>{fruit}</li>
+            ))}
+          </ul>
+        </li>
+      </ul>
+
+      <button onClick={greet}>Click Me</button>
+    </div>
+  );
+}
+
+// Destructure inside the function body
+function Child2(props) {
+  const { str, amountInNumber, isOk, notSet, fruits, student, greet } = props;
+
+  return (
+    <div>
+      <h2>I am the Child Component</h2>
+
+      <ul>
+        <li>
+          Favourite String: <b>{str}</b>
+        </li>
+
+        <li>
+          Amount: <b>{amountInNumber}</b>
+        </li>
+
+        <li>
+          Boolean: <b>{String(isOk)}</b>
+        </li>
+
+        <li>
+          Null Value: <b>{String(notSet)}</b>
+        </li>
+
+        <li>
+          Student Name: <b>{student.name}</b>
+        </li>
+
+        <li>
+          Student Age: <b>{student.age}</b>
+        </li>
+
+        <li>
+          Student Country: <b>{student.country}</b>
+        </li>
+
+        <li>
+          Fruits:
+          <ul>
+            {fruits.map((fruit) => (
+              <li key={fruit}>{fruit}</li>
+            ))}
+          </ul>
+        </li>
+      </ul>
+
+      <button onClick={greet}>Click Me</button>
     </div>
   );
 }
