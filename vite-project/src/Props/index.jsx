@@ -9,7 +9,7 @@ function Parent() {
   const fruits = ["Apple", "Banana", "Orange"];
 
   const student = {
-    name: "Rachel",
+    name: "Rachell",
     age: 22,
     country: "Kenya",
   };
