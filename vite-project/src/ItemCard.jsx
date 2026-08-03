@@ -1,27 +1,66 @@
-function ItemCard() {
-  const description =
-    "A classic, high-intensity cardio tool that improves agility, burns calories, and builds lower-body strength.";
-
-  const amount = "KES 2,000";
+function ItemCard(props) {
+  const { description, amount, img } = props;
 
   return (
-    <div className="item-card">
-      <div className="item-image">
-        <img
-          src="https://m.media-amazon.com/images/I/71wm42EtoNL._AC_UL320_.jpg"
-          alt="Jump Rope"
-        />
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        width: "300px",
+        border: "2px solid rgba(0,0,0,0.2)",
+        padding: "8px",
+        margin: "10px",
+      }}
+    >
+      <div
+        style={{
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        <img width="200px" src={img} alt={description} />
       </div>
 
-      <p className="item-description">
+      <div
+        style={{
+          textAlign: "left",
+          fontSize: "12px",
+        }}
+      >
         {description}
-      </p>
+      </div>
 
-      <h2 className="item-price">{amount}</h2>
+      <div
+        style={{
+          fontSize: "22px",
+          fontWeight: "bold",
+          marginTop: "10px",
+        }}
+      >
+        KES {amount}
+      </div>
 
-      <button className="cart-btn">
-        Add to Cart
-      </button>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          marginTop: "15px",
+        }}
+      >
+        <button
+          style={{
+            border: "1px solid rgba(0,0,0,0.2)",
+            padding: "10px 20px",
+            backgroundColor: "orange",
+            color: "white",
+            cursor: "pointer",
+            borderRadius: "5px",
+          }}
+        >
+          Add to Cart
+        </button>
+      </div>
     </div>
   );
 }
