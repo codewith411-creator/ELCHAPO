@@ -1,10 +1,11 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 
-import AmazonPage2 from "./AmazonPage2.0";
-
+import Form from "./StateAndEvents/Form";
+import Form2 from "./StateAndEvents/Form2.0";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <AmazonPage2 />
-  </StrictMode>
+    <Form />
+    <Form2 />
+  </StrictMode>,
 );
