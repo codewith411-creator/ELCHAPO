@@ -1,65 +1,65 @@
 import { useState } from "react";
 
 /*
-how to pass state to other components.
-update the state if they.
-props and state.
+1. Move the color and setColor state inside ColorForm (increase performance)
+   Compare console logs before and after.
+
+2. Add a button on each color to remove it.
 */
 
 function ColorsCircles() {
   const [colors, setColors] = useState([]);
-  const [color, setColor] = useState("");
-  const [radius, setRadius] = useState("");
 
   console.log("ColorsCircles render", new Date());
 
-  const onSubmit = () => {
-    const clonedColors = structuredClone(colors); // [...colors]
-    clonedColors.push(color);
-    setColors(clonedColors);
-  };
-
   return (
     <div>
-      <ColorForm
-        color={color}
-        setColor={setColor}
-        onSubmit={onSubmit}
-      />
-
-      <ColorList
-        colors={colors}
-        setColors={setColors}
-      />
+      <ColorForm setColors={setColors} />
+      <ColorList colors={colors} setColors={setColors} />
     </div>
   );
 }
 
-function ColorForm(props) {
-  const { color, setColor, onSubmit } = props;
+function ColorForm({ setColors }) {
+  const [color, setColor] = useState("");
 
   console.log("ColorForm render", new Date());
+
+  const onSubmit = () => {
+    if (color.trim() === "") return;
+
+    setColors((prevColors) => {
+      const clonedColors = structuredClone(prevColors);
+      clonedColors.push(color);
+      return clonedColors;
+    });
+
+    setColor("");
+  };
 
   return (
     <div>
       <label>Enter Color</label>
 
-      <input
-        value={color}
-        onChange={(e) => setColor(e.target.value)}
-      />
+      <input value={color} onChange={(e) => setColor(e.target.value)} />
 
-      <button onClick={onSubmit}>
-        Save
-      </button>
+      <button onClick={onSubmit}>Save</button>
     </div>
   );
 }
 
-function ColorList(props) {
-  const { colors, setColors } = props;
-
+function ColorList({ colors, setColors }) {
   console.log("ColorList render", new Date());
+
+  const removeColor = (indexToRemove) => {
+    setColors((prevColors) => {
+      const clonedColors = structuredClone(prevColors);
+
+      clonedColors.splice(indexToRemove, 1);
+
+      return clonedColors;
+    });
+  };
 
   return (
     <div style={{ marginTop: "30px" }}>
@@ -68,14 +68,19 @@ function ColorList(props) {
           key={index}
           style={{
             margin: "10px",
-            width: "100%",
-            height: "30px",
+            width: "250px",
+            height: "40px",
             backgroundColor: color,
             color: "white",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
             padding: "10px",
           }}
         >
-          {color}
+          <span>{color}</span>
+
+          <button onClick={() => removeColor(index)}>Remove</button>
         </div>
       ))}
     </div>
