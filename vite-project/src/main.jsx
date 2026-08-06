@@ -1,10 +1,10 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 
-import ColorsCircles from "./StateAndEvents/ColorsAndCircles";
+import LifeCycle from "./SideEffects/LifeCycle";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <ColorsCircles />
-  </StrictMode>
+    <LifeCycle />
+  </StrictMode>,
 );
