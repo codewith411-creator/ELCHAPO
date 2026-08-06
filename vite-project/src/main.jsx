@@ -1,10 +1,10 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 
-import LifeCycle from "./SideEffects/LifeCycle";
+import GithubProject from "./GithubProject";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <LifeCycle />
-  </StrictMode>,
+    <GithubProject />
+  </StrictMode>
 );
